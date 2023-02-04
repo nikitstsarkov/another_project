@@ -8,7 +8,7 @@ class PostController extends Controller
 {
     public function index(){
         $str = 'string';
-        print ("hello world");
+        print ("testing");
         var_dump($str);
     }
 
