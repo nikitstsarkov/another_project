@@ -18,9 +18,8 @@ Route::get('/', function () {
 });
 
 Route::get('/post', 'PostController@index');
-
 Route::get('/posts/create', 'PostController@create');
-Route::get('/posts/create', 'PostController@update');
+Route::get('/posts/update', 'PostController@update');
 
 
 
