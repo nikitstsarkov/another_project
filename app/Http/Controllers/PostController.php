@@ -49,7 +49,7 @@ class PostController extends Controller
 
     public function update()
     {
-        $post = Post::find(6);
+        $post = Post::find(4);
 
         $post->update([
             'title' => 'updated',
