@@ -25,7 +25,6 @@ class CreatePostsTable extends Migration
             $table->softDeletes();
         });
     }
-//php artisan make:migration add_column_description_to_posts_table это чтобы создать (добавить сюда столбцы)
     /**
      * Reverse the migrations.
      *
