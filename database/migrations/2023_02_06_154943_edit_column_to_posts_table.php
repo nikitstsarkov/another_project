@@ -4,18 +4,19 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class DeleteColumnDescriptionToPostTable extends Migration
+class EditColumnToPostsTable extends Migration
 {
     /**
      * Run the migrations.
      *
      * @return void
-     */ //php artisan make:migration delete_column_description_to_posts_table (чтобы удалить что то из миграции)
+     */ //php artisan make:migration edit_column_to_posts_table (чтоыб изменить в ней что то типа названия столбца или
+    //типа данных
 
     public function up()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->dropColumn('description');
+            $table->renameColumn('content', 'post_content');
         });
     }
 
@@ -27,7 +28,7 @@ class DeleteColumnDescriptionToPostTable extends Migration
     public function down()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->text('description')->nullable()->after('content');
+            $table->renameColumn('post_content', 'content');
         });
     }
 }
