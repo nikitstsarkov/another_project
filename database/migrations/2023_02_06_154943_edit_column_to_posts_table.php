@@ -10,9 +10,7 @@ class EditColumnToPostsTable extends Migration
      * Run the migrations.
      *
      * @return void
-     */ //php artisan make:migration edit_column_to_posts_table (чтоыб изменить в ней что то типа названия столбца или
-    //типа данных
-
+     */
     public function up()
     {
         Schema::table('posts', function (Blueprint $table) {
@@ -32,3 +30,5 @@ class EditColumnToPostsTable extends Migration
         });
     }
 }
+//php artisan make:migration edit_column_to_posts_table (чтоыб изменить в ней что то типа названия столбца или
+//типа данных
