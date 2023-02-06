@@ -10,11 +10,9 @@ class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::where('is_published', 1);
-        foreach ($posts as $post) {
-            dump($post->title);
-        }
-        dd('end');
+       $posts = Post::all();
+       dd($posts);
+        
     }
 
     public function create()
@@ -36,10 +34,10 @@ class PostController extends Controller
             ],
         ];
         Post::create([   // это для создания таблицы
-            'title' => 'title of post from phpshtorm',
-            'content' => 'some interesting content',
-            'image' => 'image.jpg',
-            'likes' => 20,
+            'title' => 'another title of post from phpshtorm',
+            'content' => 'another some interesting content',
+            'image' => 'another image.jpg',
+            'likes' => 50,
             'is_published' => 1,
         ]);
 
