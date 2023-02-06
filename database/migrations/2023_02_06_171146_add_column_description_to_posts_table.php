@@ -4,17 +4,17 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class EditColumnToPostsTable extends Migration
+class AddColumnDescriptionToPostsTable extends Migration
 {
     /**
      * Run the migrations.
      *
      * @return void
-     */
+     */ //php artisan make:migration add_column_description_to_posts_table чтобы создать
     public function up()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->renameColumn('likes', 'likes1');
+            $table->text('description')->nullable()->after('content');  //php artisan migrate
         });
     }
 
@@ -26,9 +26,7 @@ class EditColumnToPostsTable extends Migration
     public function down()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->renameColumn('likes1', 'likes');
+            $table->dropColumn('description');
         });
     }
 }
-//php artisan make:migration edit_column_to_posts_table (чтоыб изменить в ней что то типа названия столбца или
-//типа данных
