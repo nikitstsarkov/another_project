@@ -10,8 +10,7 @@ class AddColumnDescriptionToPostsTable extends Migration
      * Run the migrations.
      *
      * @return void
-     */ //php artisan make:migration add_column_description_to_posts_table чтобы добавить добавление в миграцию
-
+     */
     public function up()
     {
         Schema::table('posts', function (Blueprint $table) {
@@ -27,7 +26,7 @@ class AddColumnDescriptionToPostsTable extends Migration
     public function down()
     {
         Schema::table('posts', function (Blueprint $table) {
-           $table->dropColumn('description');   //php artisan migrate:rollback
+            $table->dropColumn('description');   //php artisan migrate:rollback
         });
     }
 }
