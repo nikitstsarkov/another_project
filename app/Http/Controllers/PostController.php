@@ -36,10 +36,10 @@ class PostController extends Controller
             ],
         ];
         Post::create([   // это для создания таблицы
-            'title' => 'another title of post from phpshtorm',
-            'content' => 'another some interesting content',
-            'image' => 'another image.jpg',
-            'likes' => 50,
+            'title' => 'title of post from phpshtorm',
+            'content' => 'some interesting content',
+            'image' => 'image.jpg',
+            'likes' => 20,
             'is_published' => 1,
         ]);
 
@@ -60,7 +60,67 @@ class PostController extends Controller
         ]);
         dd('updated');
     }
+   public function delete()  //восстановить удаленное
+   {
+       $post = Post::withTrashed()->find(2);
+       $post->restore();
+       dd('deleted');
+   }
+//public function delete() //удалить
+//   {
+//       $post = Post::find(2);
+//       $post->delete();
+//       dd('deleted');
 
+//firstOrCreate
+//updateOrCreate
 
+     public function firstOrCreate()
+     {
+         //$post = Post::find(1);
+
+         $anontherPost = [
+             'title' => 'some post',
+             'content' => 'some content',
+             'image' => 'image.jpg',
+             'likes' => 200,
+             'is_published' => 1,
+         ];
+
+         $post = Post::firstOrCreate([
+             'title' => 'some post'
+         ],[
+             'title' => 'some post',
+             'content' => 'some content',
+             'image' => 'image.jpg',
+             'likes' => 200,
+             'is_published' => 1,
+         ]);
+         dump($post->content);
+         dd('end');
+     }
+
+     public function updateOrCreate()
+     {
+         $anontherPost = [
+             'title' => 'updateOrCreate some post',
+             'content' => 'updateOrCreate some content',
+             'image' => 'updateOrCreate image.jpg',
+             'likes' => 100,
+             'is_published' => 1,
+         ];
+
+         $post = Post::updateOrCreate([
+             'title' => 'updateOrCreate some post'
+         ],[
+             'title' => 'updateOrCreate some post',
+             'content' => 'updateOrCreate some content',
+             'image' => 'updateOrCreate image.jpg',
+             'likes' => 100,
+             'is_published' => 1,
+         ]);
+         dump($post->content);
+         dd('update');
+     }
 }
 
