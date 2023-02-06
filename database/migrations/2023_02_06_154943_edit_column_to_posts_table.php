@@ -16,7 +16,7 @@ class EditColumnToPostsTable extends Migration
     public function up()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->renameColumn('content ', 'post_content');
+            $table->renameColumn('content', 'post_content');
         });
     }
 
