@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddColumnDescriptionToPostTable extends Migration
+class ChangeColumnPostContentToStringToPostsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class AddColumnDescriptionToPostTable extends Migration
     public function up()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->text('description')->nullable()->after('content');  //php artisan migrate
+            $table->string('content')->change();
         });
     }
 
@@ -26,7 +26,7 @@ class AddColumnDescriptionToPostTable extends Migration
     public function down()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->dropColumn('description');   //php artisan migrate:rollback
+            $table->text('content')->change();
         });
     }
 }
