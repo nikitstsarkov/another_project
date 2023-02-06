@@ -21,9 +21,10 @@ class CreatePostsTable extends Migration
             $table->unsignedBigInteger('likes')->nullable();
             $table->boolean('is_published')->default(1);
             $table->timestamps();
+
+            $table->softDeletes();
         });
     }
-
     /**
      * Reverse the migrations.
      *
